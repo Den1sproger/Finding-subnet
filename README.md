@@ -47,9 +47,9 @@ pip install .
 Run command
 ```
 # IPv4
-run-ipv4
+run-ipv4 IPv4.txt 4
 # IPv6
-run-ipv6
+run-ipv6 IPv6.txt 6
 ```
 
 ## Test coverage
