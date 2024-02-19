@@ -27,7 +27,10 @@ def get_data_from_file(filepath: str) -> list[str]:
 
 
 
-def get_min_subnet(ip_addresses: list, version: int) -> str:
+def get_min_subnet(ip_addresses: list, version: int = 4) -> str:
+    if not ip_addresses:
+        raise Exception('IP addresses list is empty')
+    
     # create list of IPAddresses objects 
     try:
         if version == 4:
