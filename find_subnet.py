@@ -37,8 +37,8 @@ def get_min_subnet(ip_addresses: list, version: int = 4) -> str:
             ips = [ipaddress.IPv4Address(ip) for ip in set(ip_addresses)]
         else:
             ips = [ipaddress.IPv6Address(ip) for ip in set(ip_addresses)]
-    except ipaddress.AddressValueError:
-        raise Exception("IP addresses don't match the specified version")
+    except ipaddress.AddressValueError:         # if IP addresses is not correct
+        raise ValueError("IP addresses don't match the specified version")
     
     # create subnet mask
     binary_ips = ['{:#b}'.format(i)[2:] for i in ips]
