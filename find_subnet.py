@@ -6,6 +6,7 @@ import argparse
 
 
 def get_arg_parser() -> argparse.ArgumentParser:
+    # get object of parser of CLI arguments
     parser = argparse.ArgumentParser()
     parser.add_argument('filename', type=str)
     parser.add_argument('ipversion', type=int, choices=(4, 6))
@@ -15,6 +16,7 @@ def get_arg_parser() -> argparse.ArgumentParser:
 
 
 def get_data_from_file(filepath: str) -> list[str]:
+    # collect data from file with IP addresses
     data = []
 
     with open(filepath, 'r', encoding='utf-8') as file:
@@ -43,7 +45,7 @@ def get_min_subnet(ip_addresses: list, version: int) -> str:
 
     while mask < ip_bits_length:            
         current_chars = [binary_ips[i][mask] for i in range(ip_count)]
-        if len(set(current_chars)) == 1:
+        if len(set(current_chars)) == 1:     # if current numbers of adresses are equal
             mask += 1
         else:
             break
@@ -58,10 +60,11 @@ def get_min_subnet(ip_addresses: list, version: int) -> str:
 
 
 
-def main():
+def main() -> None:
     parser = get_arg_parser()
     namespace = parser.parse_args(sys.argv[1:])
 
+    # CLI arguments
     file = namespace.filename
     version = namespace.ipversion
 
