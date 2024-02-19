@@ -39,6 +39,26 @@ make run-ipv4
 make run-ipv6
 ```
 
+### 3-rd way. Run with setuptools
+Create package
+```
+pip install .
+```
+Run command
+```
+# IPv4
+run-ipv4
+# IPv6
+run-ipv6
+```
+
+## Test coverage
+In total we have **4 functions**. They take up **65 lines** of code.
+
+The tests are designed only for the function ***get_min_subnet***. It takes **32 lines**.
+
+**test coverage** = 32/65 * 100% = **49.23%**
+
 ## Run tests
 
 ### 1-st way. Run python command
